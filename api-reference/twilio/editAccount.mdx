@@ -1,0 +1,146 @@
+---
+title: "/api/twilio/updateAccount"
+description: "Description of your new file."
+---
+
+**# Update Twilio Account API**
+
+Updates an existing Twilio account's credentials.
+
+**## Endpoint**
+
+\`\`\`http
+
+PATCH /api/twilio/updateAccount
+
+\`\`\`
+
+**## Request**
+
+**### Headers**
+
+\`\`\`http
+
+Content-Type: application/json
+
+\`\`\`
+
+**### Body Parameters**
+
+\| Parameter  | Type    | Required | Description |
+
+\|------------|---------|----------|-------------|
+
+\| id         | string  | Yes      | The unique identifier of the Twilio credentials record |
+
+\| user\_id    | string  | Yes      | The unique identifier of the user |
+
+\| accountSID | string  | Yes      | The updated Twilio Account SID |
+
+\| authToken  | string  | Yes      | The updated Twilio Auth Token |
+
+\| fromNumber | string  | Yes      | The updated Twilio phone number |
+
+**### Example Request**
+
+\`\`\`json
+
+\{
+
+    "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+    "accountSID": "updated accountSID",
+
+    "authToken": "updated authToken",
+
+    "fromNumber": "updated phone number",
+
+    "id": "31"
+
+}
+
+\`\`\`
+
+**## Response**
+
+**### Success Response (200 OK)**
+
+\`\`\`json
+
+\{
+
+    "status": "success",
+
+    "data": \[
+
+        \{
+
+            "id": 31,
+
+            "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+            "account\_sid": "updated accountSID",
+
+            "auth\_token": "updated authToken",
+
+            "from\_phone\_number": "updated phone number",
+
+            "created\_at": "2025-02-12T13:31:30.004948"
+
+        }
+
+    ]
+
+}
+
+\`\`\`
+
+**### Error Responses**
+
+**#### Missing Parameters (500 Internal Server Error)**
+
+\`\`\`json
+
+\{
+
+    "status": "error",
+
+    "message": "Missing parameters"
+
+}
+
+\`\`\`
+
+**#### Database Error (500 Internal Server Error)**
+
+\`\`\`json
+
+\{
+
+    "status": "error",
+
+    "message": "Internal Server Error",
+
+    "error": \{
+
+        // Error details from the database
+
+    }
+
+}
+
+\`\`\`
+
+**## Notes**
+
+\- All parameters in the request body are required
+
+\- The endpoint validates the presence of all required fields before processing
+
+\- The response includes the updated record with all its fields
+
+\- The \`created\_at\` timestamp remains unchanged from the original record creation
+
+\- Make sure to handle the auth token securely in your requests
+
+\- The update operation is performed based on the provided \`id\` parameter

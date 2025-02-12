@@ -1,0 +1,345 @@
+---
+title: "/api/agent/updateAgent"
+description: "Description of your new file."
+---
+
+**# Update Agent API**
+
+
+
+
+Updates an existing AI agent's configuration.
+
+
+
+
+**## Endpoint**
+
+
+
+
+\`\`\`http
+
+POST /api/agent/updateAgent
+
+\`\`\`
+
+
+
+
+**## Request**
+
+
+
+
+**### Headers**
+
+\`\`\`http
+
+Content-Type: application/json
+
+\`\`\`
+
+
+
+
+**### Body Parameters**
+
+
+
+
+\| Parameter          | Type   | Required | Description |
+
+\|-------------------|--------|----------|-------------|
+
+\| id                | string | Yes      | UUID of the agent to update |
+
+\| name              | string | Yes      | New name for the agent |
+
+\| twilio\_from\_number| string | Yes      | New Twilio phone number for the agent |
+
+\| voice\_id          | string | Yes      | New Ultravox voice ID |
+
+\| system\_prompt     | string | Yes      | New system prompt that defines the agent's behavior |
+
+
+
+
+**### Example Request**
+
+
+
+
+\`\`\`json
+
+\{
+
+  "name": "Customer Service Bot",
+
+  "twilio\_from\_number": "updated phone number",
+
+  "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+  "voice\_id": "11b9ff7d-3245-4333-a5ae-80457d32e7c3",
+
+  "system\_prompt": "Updated the System prompt",
+
+  "id": "2bd43cf5-52d9-4917-84f3-c5defd82ccc9"
+
+}
+
+\`\`\`
+
+
+
+
+**## Response**
+
+
+
+
+**### Success Response (200 OK)**
+
+
+
+
+\`\`\`json
+
+\{
+
+    "status": "success",
+
+    "data": \{
+
+        "id": "e84211c8-4c14-42c1-8baf-597878cd5853",
+
+        "created\_at": "2025-02-12T13:57:10.894+00:00",
+
+        "phone\_number": "updated phone number",
+
+        "voice": "11b9ff7d-3245-4333-a5ae-80457d32e7c3",
+
+        "system\_prompt": "Updated the System prompt",
+
+        "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+        "name": "Customer Service Bot",
+
+        "is\_appointment\_booking\_allowed": false,
+
+        "appointment\_tool\_id": null,
+
+        "is\_deleted": false
+
+    }
+
+}
+
+\`\`\`
+
+
+
+
+**### Response Fields**
+
+
+
+
+\| Field                      | Type      | Description |
+
+\|---------------------------|-----------|-------------|
+
+\| id                        | string    | UUID of the agent |
+
+\| created\_at                | timestamp | Original creation timestamp (unchanged) |
+
+\| phone\_number              | string    | Updated Twilio phone number |
+
+\| voice                     | string    | Updated Ultravox voice ID |
+
+\| system\_prompt             | string    | Updated system prompt |
+
+\| user\_id                   | string    | Owner of the agent (unchanged) |
+
+\| name                      | string    | Updated name of the agent |
+
+\| is\_appointment\_booking\_allowed | boolean | Whether agent can book appointments |
+
+\| appointment\_tool\_id       | string    | ID of the appointment tool (if enabled) |
+
+\| is\_deleted               | boolean   | Soft deletion status |
+
+
+
+
+**### Error Response (500 Internal Server Error)**
+
+
+
+
+\`\`\`json
+
+\{
+
+    "status": "error",
+
+    "message": "Internal Server Error",
+
+    "error": \{
+
+        // Database error details
+
+    }
+
+}
+
+\`\`\`
+
+---
+title: "/api/agent/updateAgent"
+description: "Description of your new file."
+---
+
+**# Update Agent API**
+
+Updates an existing AI agent's configuration.
+
+**## Endpoint**
+
+\`\`\`http
+
+POST /api/agent/updateAgent
+
+\`\`\`
+
+**## Request**
+
+**### Headers**
+
+\`\`\`http
+
+Content-Type: application/json
+
+\`\`\`
+
+**### Body Parameters**
+
+\| Parameter          | Type   | Required | Description |
+
+\|-------------------|--------|----------|-------------|
+
+\| id                | string | Yes      | UUID of the agent to update |
+
+\| name              | string | Yes      | New name for the agent |
+
+\| twilio\_from\_number| string | Yes      | New Twilio phone number for the agent |
+
+\| voice\_id          | string | Yes      | New Ultravox voice ID |
+
+\| system\_prompt     | string | Yes      | New system prompt that defines the agent's behavior |
+
+**### Example Request**
+
+\`\`\`json
+
+\{
+
+  "name": "Customer Service Bot",
+
+  "twilio\_from\_number": "updated phone number",
+
+  "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+  "voice\_id": "11b9ff7d-3245-4333-a5ae-80457d32e7c3",
+
+  "system\_prompt": "Updated the System prompt",
+
+  "id": "2bd43cf5-52d9-4917-84f3-c5defd82ccc9"
+
+}
+
+\`\`\`
+
+**## Response**
+
+**### Success Response (200 OK)**
+
+\`\`\`json
+
+\{
+
+    "status": "success",
+
+    "data": \{
+
+        "id": "e84211c8-4c14-42c1-8baf-597878cd5853",
+
+        "created\_at": "2025-02-12T13:57:10.894+00:00",
+
+        "phone\_number": "updated phone number",
+
+        "voice": "11b9ff7d-3245-4333-a5ae-80457d32e7c3",
+
+        "system\_prompt": "Updated the System prompt",
+
+        "user\_id": "c99f0ac3-a143-4be9-ad80-3f59cd04d712",
+
+        "name": "Customer Service Bot",
+
+        "is\_appointment\_booking\_allowed": false,
+
+        "appointment\_tool\_id": null,
+
+        "is\_deleted": false
+
+    }
+
+}
+
+\`\`\`
+
+**### Response Fields**
+
+\| Field                      | Type      | Description |
+
+\|---------------------------|-----------|-------------|
+
+\| id                        | string    | UUID of the agent |
+
+\| created\_at                | timestamp | Original creation timestamp (unchanged) |
+
+\| phone\_number              | string    | Updated Twilio phone number |
+
+\| voice                     | string    | Updated Ultravox voice ID |
+
+\| system\_prompt             | string    | Updated system prompt |
+
+\| user\_id                   | string    | Owner of the agent (unchanged) |
+
+\| name                      | string    | Updated name of the agent |
+
+\| is\_appointment\_booking\_allowed | boolean | Whether agent can book appointments |
+
+\| appointment\_tool\_id       | string    | ID of the appointment tool (if enabled) |
+
+\| is\_deleted               | boolean   | Soft deletion status |
+
+**### Error Response (500 Internal Server Error)**
+
+\`\`\`json
+
+\{
+
+    "status": "error",
+
+    "message": "Internal Server Error",
+
+    "error": \{
+
+        // Database error details
+
+    }
+
+}
+
+\`\`\`
